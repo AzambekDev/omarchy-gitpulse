@@ -18,6 +18,7 @@ BarWidget {
 
   // State
   property bool popupOpen: false
+  readonly property bool opened: popupOpen
   property bool isFetching: false
   property string activeTab: "prs" // "prs" | "reviews" | "notifications"
   property string statusMessage: ""

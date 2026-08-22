@@ -4,7 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 [![GitHub CLI](https://img.shields.io/badge/Powered%20by-GitHub%20CLI-black?style=flat-square&logo=github)](https://cli.github.com/)
 
-**GitPulse** is a lightweight, real-time GitHub status monitor, Pull Request tracker, CI/CD health indicator, and interactive notification center built specifically for [Omarchy Linux](https://omarchy.org/) and Hyprland.
+**GitPulse** is a lightweight, real-time GitHub status monitor, Pull Request tracker, CI/CD health indicator, and interactive notification center built specifically for [Omarchy Linux](https://omarchy.org/) and Hyprland. Designed for both keyboard-first (anti-mouse) power users and mouse-driven workflows alike.
 
 ---
 
@@ -16,17 +16,43 @@
   - Review request badges (in amber/accent color) when teammates request your code review.
 - **⚡ Zero-Config Authentication:**
   - Automatically connects via your existing [GitHub CLI (`gh`)](https://cli.github.com/) keyring. No manual token creation or API key pasting required.
+- **⌨️ 100% Keyboard-Driven & Anti-Mouse Friendly:**
+  - Full Vim-style navigation support (`j`/`k`, `h`/`l`, `1`/`2`/`3`, `o`, `x`, `r`, `q`).
+  - Active visual cursor tracking that highlights selected items and seamlessly synchronizes with mouse hover.
 - **📋 Interactive Popup Panel:**
   - **My Pull Requests:** View your open PRs, draft status, review decisions (*Approved*, *Changes Requested*, *In Review*), and live CI check statuses (*Passed*, *Failed*, *Running*).
   - **Review Requests:** PRs waiting for your review with author and age.
   - **Notification Center:** Unread alerts, issues, mentions, and releases with **1-Click "Mark as Read"** and **"Mark All Read"** actions.
-  - **Quick Shortcuts:** Direct 1-click links to create new Issues, Pull Requests, or open your GitHub dashboard.
+  - **Quick Shortcuts:** Direct links to create new Issues, Pull Requests, or open your GitHub dashboard.
 - **🎨 100% Native Omarchy Look & Feel:**
   - Automatically inherits your current Omarchy theme (Catppuccin, Gruvbox, Tokyo Night, Nord, etc.), fonts, borders, corner radiuses, and spacing tokens.
 - **🖱️ Mouse Controls:**
   - **Left Click:** Open / close interactive detail popup.
   - **Right Click:** Force immediate data refresh.
   - **Middle Click:** Open your GitHub profile in default browser.
+
+---
+
+## ⌨️ Keyboard Navigation Reference
+
+When the GitPulse popup is open, you never need to touch your mouse:
+
+| Keybinding | Action |
+| :--- | :--- |
+| <kbd>j</kbd> / <kbd>↓</kbd> | Move cursor down through list items |
+| <kbd>k</kbd> / <kbd>↑</kbd> | Move cursor up through list items |
+| <kbd>1</kbd> | Switch to **My PRs** tab |
+| <kbd>2</kbd> | Switch to **Review Requests** tab |
+| <kbd>3</kbd> | Switch to **Notifications / Alerts** tab |
+| <kbd>h</kbd> / <kbd>l</kbd> or <kbd>Tab</kbd> / <kbd>Shift+Tab</kbd> | Cycle through tabs |
+| <kbd>Enter</kbd> / <kbd>o</kbd> / <kbd>Space</kbd> | Open selected PR / notification in browser |
+| <kbd>x</kbd> / <kbd>d</kbd> | Mark selected notification as read |
+| <kbd>a</kbd> | Mark **all** notifications as read |
+| <kbd>r</kbd> | Force refresh GitHub data (with spin animation) |
+| <kbd>p</kbd> | Open your GitHub profile in browser |
+| <kbd>n</kbd> | Open New Pull Request page in browser |
+| <kbd>i</kbd> | Open Issues dashboard in browser |
+| <kbd>Esc</kbd> / <kbd>q</kbd> | Close popup |
 
 ---
 
@@ -79,12 +105,12 @@ You can customize GitPulse in `~/.config/omarchy/shell.json` under `bar.layout`:
 
 ---
 
-## ⌨️ Global Keybindings (Hyprland)
+## 🌐 Global Keybinding (Hyprland)
 
-You can assign a global hotkey to summon or toggle GitPulse by adding this to `~/.config/hypr/bindings.lua` or your Hyprland keybindings:
+Bind a shortcut to toggle GitPulse from anywhere in Hyprland by editing `~/.config/hypr/bindings.lua`:
 
 ```lua
--- Toggle GitPulse Popup
+-- Toggle GitPulse Popup with Super+G
 o.bind("SUPER, G", function()
   hl.exec("omarchy-shell shell toggle azambekdev.gitpulse '{}'")
 end)
@@ -108,6 +134,10 @@ omarchy-shell call azambekdev.gitpulse close
 
 # Mark all unread notifications as read
 omarchy-shell call azambekdev.gitpulse markAllRead
+
+# Cycle tabs
+omarchy-shell call azambekdev.gitpulse nextTab
+omarchy-shell call azambekdev.gitpulse prevTab
 ```
 
 ---

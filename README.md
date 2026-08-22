@@ -110,8 +110,8 @@ You can customize GitPulse in `~/.config/omarchy/shell.json` under `bar.layout`:
 Bind a shortcut to toggle GitPulse from anywhere in Hyprland by editing `~/.config/hypr/bindings.lua`:
 
 ```lua
--- Toggle GitPulse Popup with Super+G
-o.bind("SUPER, G", function()
+-- Toggle GitPulse Popup with Super+Ctrl+G
+o.bind("SUPER + CTRL + G", function()
   hl.exec("omarchy-shell shell toggle azambekdev.gitpulse '{}'")
 end)
 ```

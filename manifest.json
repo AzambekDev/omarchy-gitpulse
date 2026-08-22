@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "azambekdev.gitpulse",
+  "name": "GitPulse",
+  "version": "1.0.0",
+  "author": "Azambek Sattarov",
+  "description": "Real-time GitHub pulse, PR review requests, CI/CD status, and notification center for Omarchy",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "GitPulse",
+    "description": "GitHub PRs, CI status, and notifications",
+    "category": "Developer",
+    "allowMultiple": false,
+    "defaultSection": "right",
+    "defaults": {
+      "pollIntervalSeconds": 60,
+      "showCiStatus": true,
+      "showReviewRequests": true,
+      "showNotifications": true,
+      "compactView": false
+    },
+    "schema": [
+      {
+        "key": "pollIntervalSeconds",
+        "type": "number",
+        "label": "Poll Interval (seconds)"
+      },
+      {
+        "key": "showCiStatus",
+        "type": "boolean",
+        "label": "Show CI status in bar"
+      },
+      {
+        "key": "showReviewRequests",
+        "type": "boolean",
+        "label": "Show review requests badge"
+      },
+      {
+        "key": "showNotifications",
+        "type": "boolean",
+        "label": "Show notifications badge"
+      },
+      {
+        "key": "compactView",
+        "type": "boolean",
+        "label": "Compact Bar Icon Only"
+      }
+    ]
+  }
+}

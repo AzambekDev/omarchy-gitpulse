@@ -156,7 +156,7 @@ jq -n \
           repo: .repository.full_name,
           updatedAt: .updated_at,
           timeAgo: time_ago(.updated_at),
-          url: (web_url(.subject.url) | if . == "" then .repository.html_url else . end)
+          url: (if .subject.url == null then .repository.html_url else web_url(.subject.url) end)
         }
       ],
       reviewRequests: [
